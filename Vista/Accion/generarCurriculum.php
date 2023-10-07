@@ -32,7 +32,7 @@ if ($_FILES['imagen']["error"] <= 0) {
     //coloca una imagen en el pdf. Este coloca una foto en el curriculum
     $pdf->Image($ruta,10, 10, 40,40, '', '', '', false, 300, '', false, false, 0);
 
-    $pdf->Output($nombre. 'curriculum.pdf','I');
+    $pdf->Output($nombre. 'curriculum.pdf','I');//manda el documento a un destino dado
 
 
 }else{
