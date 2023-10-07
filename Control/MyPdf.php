@@ -3,10 +3,11 @@
 class MYPDF extends TCPDF {
 
     //Page header
+    //puedo hacer que reciba una funcion con el nombre, apellido, telefono y correo
     public function Header() {
         // Logo
         $image_file = 'C:\xampp\htdocs\PWD\Demo-TCPDF\Vista\foto\photo_2019-07-01_08-35-35.jpg';
-        $this->Image($image_file, 15, 15, 25, 25, '', '', '', false, 300, '', false, false, 0);
+        $this->Image($image_file, 15, 15, 40,40, '', '', '', false, 300, '', false, false, 0);
         //$this->Image($image_file, 30, 28, 20, 20, '', '', '', false, 30, '', false, false, 0);
         // Set font
         $this->SetFont('helvetica', 'B', 20);
