@@ -6,121 +6,149 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Librerias/bootstrap-5.3.1-dist/css/bootstrap.min.css">
-    <script type="javascript/text" src="Librerias/bootstrap-5.3.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="Librerias/bootstrap-5.3.1-dist/js/bootstrap.min.js"></script>
     <title>Generador Currículum</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <form id="form" name="form" method="POST" action="Accion/action.php" class="row g-3">
-            <div class="col-md-4">
-                <label for="validationServer01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
-                <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                    Please choose a username.
-                </div>
+    <div class="contenedor-formulario">
+        <div class="container">
+            <div class="bg-light">
+                <h5 class="bi bi-box-arrow-in-down-left bg-gray text-blue p-2">Generador de currículum</h5>
             </div>
-            <div class="col-md-4">
-                <label for="validationServer01" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" pattern="^[a-zA-Z]+$">
-            </div>
-            <div class="col-md-6">
-                <label for="validationServer03" class="form-label">City</label>
-                <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
-                <div id="validationServer03Feedback" class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="validationServer04" class="form-label">State</label>
-                <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-                    <option selected disabled value="">Choose...</option>
-                    <option>...</option>
-                </select>
-                <div id="validationServer04Feedback" class="invalid-feedback">
-                    Please select a valid state.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="validationServer05" class="form-label">Zip</label>
-                <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-                <div id="validationServer05Feedback" class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-                    <label class="form-check-label" for="invalidCheck3">
-                        Agree to terms and conditions
-                    </label>
-                    <div id="invalidCheck3Feedback" class="invalid-feedback">
-                        You must agree before submitting.
+            <div class="container-fluid">
+
+                <form class="row mt-3 g-3 needs-validation" method="POST" action="Accion/action.php" novalidate enctype="multipart/form-data">
+
+                    <!-- INPUTS ALFANUMÉRICOS -->
+                    <div class="contenedor-dato">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" pattern="[a-zA-Z]+" required>
+                        <div class="invalid-feedback">
+                            Complete el campo correctamente.
+                        </div>
                     </div>
-                </div>
+                    <div class="contenedor-dato">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido" pattern="[a-zA-Z]+" required>
+                        <div class="invalid-feedback">
+                            Complete el campo correctamente.
+                        </div>
+                    </div>
+                    <div class="contenedor-dato">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="text" class="form-control" name="edad" id="edad" pattern="^\d{1,3}$" required>
+                        <div class="invalid-feedback">
+                            Ingrese una edad válida.
+                        </div>
+                    </div>
+                    <div class="contenedor-dato">
+                        <label for="correo" class="form-label">Correo electrónico</label>
+                        <input type="text" class="form-control" name="correo" id="correo" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z]+\.[a-zA-Z\.]+$" placeholder="example@example.com" required>
+                        <div class="invalid-feedback">
+                            Ingrese un correo válido.
+                        </div>
+                    </div>
+                    <div class="contenedor-dato">
+                        <label for="sobreMi" class="form-label">Sobre mí</label>
+                        <textarea class="form-control" name="sobreMi" id="sobreMi" placeholder="Cuéntanos un poco de ti..." required></textarea>
+                        <div class="invalid-feedback">
+                            Campo obligatorio.
+                        </div>
+                    </div>
+                    <div class="contenedor-dato">
+                        <label for="formFile" class="form-label">Cargar una imagen <span class="opcional">*Opcional</span></label>
+                        <input class="form-control" type="file" name="imagen" required>
+                    </div>
+
+                    <!-- RADIO BUTTONS -->
+                    <div class="contenedor-dato">
+                        <label for="educacion" class="form-label">Nivel de estudios</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="radio-stacked" required>
+                            <label class="form-check-label" for="educacion">Sin estudios</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="radio-stacked" required>
+                            <label class="form-check-label" for="educacion">Estudios primarios</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="radio-stacked" required>
+                            <label class="form-check-label" for="educacion">Estudios secundarios</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="radio-stacked" required>
+                            <label class="form-check-label" for="educacion">Estudios terciarios/universitarios</label>
+                        </div>
+                    </div>
+
+                    <!-- EXP LABORAL (LISTA) -->
+                    <button type="button" id="agregar-experiencia" class="form-check-button">Agregar experiencia laboral</button>
+                    <div class="contenedor-dato">
+                        <div id="experiencia-container">
+                            <!-- Los campos de experiencia laboral se agregan acá -->
+                        </div>
+                    </div>
+
+                    <!-- BOTÓN DE ENVIAR -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button class="btn btn-primary me-md-2 boton" type="submit">Enviar</button>
+                    </div>
+                </form>
+
             </div>
-            <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
-            </div>
-    </div>
-    </div>
-    <div class="col-md-4">
-        <label for="validationServer02" class="form-label">Apellido</label>
-        <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
-        <div class="valid-feedback">
-            Looks good!
         </div>
     </div>
-    <div class="col-md-4">
-        <label for="validationServerUsername" class="form-label">Username</label>
-        <div class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepend3">@</span>
-            <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
-            <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                Please choose a username.
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <label for="validationServer03" class="form-label">City</label>
-        <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
-        <div id="validationServer03Feedback" class="invalid-feedback">
-            Please provide a valid city.
-        </div>
-    </div>
-    <div class="col-md-3">
-        <label for="validationServer04" class="form-label">State</label>
-        <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-            <option selected disabled value="">Choose...</option>
-            <option>...</option>
-        </select>
-        <div id="validationServer04Feedback" class="invalid-feedback">
-            Please select a valid state.
-        </div>
-    </div>
-    <div class="col-md-3">
-        <label for="validationServer05" class="form-label">Zip</label>
-        <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-        <div id="validationServer05Feedback" class="invalid-feedback">
-            Please provide a valid zip.
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="form-check">
-            <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-            <label class="form-check-label" for="invalidCheck3">
-                Agree to terms and conditions
-            </label>
-            <div id="invalidCheck3Feedback" class="invalid-feedback">
-                You must agree before submitting.
-            </div>
-        </div>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-    </div>
-    </form>
-    </div>
+
+    <script>
+        //Desactivo envío de formularios con campos inválidos.
+        (function() {
+            'use strict'
+
+            //Selecciono los formularios que requieren validación
+            var forms = document.querySelectorAll('.needs-validation')
+
+            //Los recorro y evito que se manden
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })();
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const experienciaContainer = document.getElementById("experiencia-container");
+            const agregarExperienciaBtn = document.getElementById("agregar-experiencia");
+
+            agregarExperienciaBtn.addEventListener("click", function() {
+                // Crear un nuevo campo de experiencia laboral
+                const experienciaItem = document.createElement("div");
+                experienciaItem.className = "experience-item";
+
+                // Agregar campos de entrada
+                experienciaItem.innerHTML = `
+                    <input type="text" name="exp[]" class="expTexto" placeholder="Añada algo aquí...">
+                    <button type="button" class="eliminar-experiencia">Eliminar</button>
+                `;
+
+                // Agregar el campo de experiencia laboral al contenedor
+                experienciaContainer.appendChild(experienciaItem);
+
+                // Agregar evento de eliminación
+                const eliminarBtn = experienciaItem.querySelector(".eliminar-experiencia");
+                eliminarBtn.addEventListener("click", function() {
+                    experienciaContainer.removeChild(experienciaItem);
+                });
+            });
+        });
+    </script>
 
 </body>
 
