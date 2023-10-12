@@ -8,7 +8,7 @@ if ($_FILES['imagen']["error"] <= 0) {
     $edad = $_POST['edad'];
     $correo = $_POST['correo'];
     $sobreMi = $_POST['sobreMi'];
-    $educacion = $_POST['educacion'];
+    $educacion = $_POST['estudios'];
     $experienca = $_POST['exp'];// como hacemos para acomodar la lista? o mas bien el formato?
     $imagen = $_FILES['imagen'];//Recibe la imagen
     $directorio = "../foto/";//donde se guarda la imagen de manera local
@@ -26,7 +26,7 @@ if ($_FILES['imagen']["error"] <= 0) {
     //Setear la fuente en general
     //$pdf->SetFont('falmily', 'style', tamaño);
     $pdf->SetFont('helvetica','', 24);
-    $html='';/*guarda el texto que va en el pdf. puede haber multiples o uno solo
+    $html="$experiencia";/*guarda el texto que va en el pdf. puede haber multiples o uno solo
     si se usa directamente el metodo writeHTML()*/
     $pdf->writeHTML($html);
     //coloca una imagen en el pdf. Este coloca una foto en el curriculum
