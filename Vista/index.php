@@ -19,7 +19,7 @@
             </div>
             <div class="container-fluid">
 
-                <form class="row mt-3 g-3 needs-validation" method="POST" action="Accion/generarCurriculum.php" novalidate enctype="multipart/form-data">
+                <form class="row mt-3 g-3 needs-validation" method="POST" action="Accion/viendoExp.php" novalidate enctype="multipart/form-data">
 
                     <!-- INPUTS ALFANUMÉRICOS -->
                     <div class="contenedor-dato">
@@ -66,19 +66,19 @@
                     <div class="contenedor-dato">
                         <label for="educacion" class="form-label">Nivel de estudios</label>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="radio-stacked" id="estudios" required>
+                            <input type="radio" class="form-check-input" name="estudios" id="estudios" value="Sin estudios" required>
                             <label class="form-check-label" for="educacion">Sin estudios</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="radio-stacked" id="estudios" required>
+                            <input type="radio" class="form-check-input" name="estudios" id="estudios" value="Estudios primarios" required>
                             <label class="form-check-label" for="educacion">Estudios primarios</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="radio-stacked" id="estudios" required>
+                            <input type="radio" class="form-check-input" name="estudios" id="estudios" value="Estudios secundarios" required>
                             <label class="form-check-label" for="educacion">Estudios secundarios</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="radio-stacked" id="estudios" required>
+                            <input type="radio" class="form-check-input" name="estudios" id="estudios" value="Estudios terciarios/universitarios" required>
                             <label class="form-check-label" for="educacion">Estudios terciarios/universitarios</label>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     <button type="button" id="agregar-experiencia" class="form-check-button">Agregar experiencia laboral</button>
                     <div class="contenedor-dato">
                         <div id="experiencia-container">
-                            <!-- Los campos de experiencia laboral se agregan acá -->
+                            <!-- Los campos de experiencia laboral se agregan acá ()-->
                         </div>
                     </div>
 
@@ -134,7 +134,7 @@
 
                 // Agregar campos de entrada
                 experienciaItem.innerHTML = `
-                    <input type="text" name="exp[]" class="expTexto" id="exp" placeholder="Añada algo aquí...">
+                    <input type="text" name="exp" class="expTexto" id="exp" placeholder="Añada algo aquí...">
                     <button type="button" class="eliminar-experiencia">Eliminar</button>
                 `;
 
