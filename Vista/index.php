@@ -52,13 +52,13 @@
                     </div>
                     <div class="contenedor-dato">
                         <label for="sobreMi" class="form-label">Sobre mí</label>
-                        <textarea class="form-control" name="sobreMi" id="sobreMi" placeholder="Cuéntanos un poco de ti..." required></textarea>
+                        <textarea class="form-control" name="sobreMi" id="sobreMi" placeholder="Aparte de estudiar/trabajar también hago..." required></textarea>
                         <div class="invalid-feedback">
                             Campo obligatorio.
                         </div>
                     </div>
                     <div class="contenedor-dato">
-                        <label for="formFile" class="form-label">Cargar una imagen <span class="opcional">*Opcional</span></label>
+                        <label for="formFile" class="form-label">Cargar una imagen <span class="opcional">*Obligatorio</span></label>
                         <input class="form-control" type="file" name="imagen" id="imagen" required>
                     </div>
 
@@ -83,17 +83,18 @@
                         </div>
                     </div>
 
-                    <!-- EXP LABORAL (LISTA) -->
-                    <button type="button" id="agregar-experiencia" class="form-check-button">Agregar experiencia laboral</button>
+                    <!-- EXP LABORAL -->
                     <div class="contenedor-dato">
-                        <div id="experiencia-container">
-                            <!-- Los campos de experiencia laboral se agregan acá ()-->
+                        <label for="exp" class="form-label">Experiencia laboral</label>
+                        <textarea class="form-control" name="exp" id="exp" placeholder="He trabajado en..." required></textarea>
+                        <div class="invalid-feedback">
+                            Campo obligatorio.
                         </div>
                     </div>
 
                     <!-- BOTÓN DE ENVIAR -->
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <button class="btn btn-primary me-md-2 boton" type="submit">Enviar</button>
+                        <button class="btn btn-primary me-md-2 boton" type="submit">Crear</button>
                     </div>
                 </form>
 
