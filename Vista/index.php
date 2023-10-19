@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="contenedor-dato">
-                        <label for="formFile" class="form-label">Cargar una imagen (formato jpg) <span class="opcional">*Obligatorio</span></label>
+                        <label for="formFile" class="form-label">Cargar una imagen (formato jpg o png) <span class="opcional">*Obligatorio</span></label>
                         <input class="form-control" type="file" name="imagen" id="imagen" required>
                     </div>
 

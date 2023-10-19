@@ -1,7 +1,6 @@
 <?php
 
-class Imagen
-{
+class Imagen{
     /**
      * Analiza si el tipo de archivo recibido es admitido, retorna booleano
      * con la respuesta
@@ -27,11 +26,10 @@ class Imagen
             $admitido = false;
 
 
-            //CORREGIR RUTA DE ARCHIVO
-        } else if (move_uploaded_file($_FILES['imagenPeli']['tmp_name'], '../../Archivos/' . $archivo)) {
-            $admitido = true;
-        }
+            
+        } 
 
         return $admitido;
     }
+
 }
