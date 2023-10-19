@@ -19,7 +19,7 @@
             </div>
             <div class="container-fluid">
 
-                <form class="row mt-3 g-3 needs-validation" method="POST" action="Accion/viendoExp.php" novalidate enctype="multipart/form-data">
+                <form class="row mt-3 g-3 needs-validation" method="POST" action="Accion/generarCurriculum.php" novalidate enctype="multipart/form-data">
 
                     <!-- INPUTS ALFANUMÉRICOS -->
                     <div class="contenedor-dato">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="contenedor-dato">
-                        <label for="formFile" class="form-label">Cargar una imagen <span class="opcional">*Obligatorio</span></label>
+                        <label for="formFile" class="form-label">Cargar una imagen (formato jpg) <span class="opcional">*Obligatorio</span></label>
                         <input class="form-control" type="file" name="imagen" id="imagen" required>
                     </div>
 
@@ -124,7 +124,9 @@
                 })
         })();
 
-        document.addEventListener("DOMContentLoaded", function() {
+        /*
+            Esto ya no sirve, eliminar mas tarde
+            document.addEventListener("DOMContentLoaded", function() {
             const experienciaContainer = document.getElementById("experiencia-container");
             const agregarExperienciaBtn = document.getElementById("agregar-experiencia");
 
@@ -148,7 +150,7 @@
                     experienciaContainer.removeChild(experienciaItem);
                 });
             });
-        });
+        });*/
     </script>
 
 </body>
