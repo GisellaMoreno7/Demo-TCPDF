@@ -52,7 +52,7 @@
                     </div>
                     <div class="contenedor-dato">
                         <label for="sobreMi" class="form-label">Sobre mí</label>
-                        <textarea class="form-control" name="sobreMi" id="sobreMi" placeholder="Aparte de estudiar/trabajar también hago..." required></textarea>
+                        <textarea class="form-control" name="sobreMi" id="sobreMi" placeholder="Aparte de estudiar/trabajar también hago..." maxlength=400 required></textarea>
                         <div class="invalid-feedback">
                             Campo obligatorio.
                         </div>
@@ -86,7 +86,7 @@
                     <!-- EXP LABORAL -->
                     <div class="contenedor-dato">
                         <label for="exp" class="form-label">Experiencia laboral</label>
-                        <textarea class="form-control" name="exp" id="exp" placeholder="He trabajado en..." required></textarea>
+                        <textarea class="form-control" name="exp" id="exp" placeholder="He trabajado en..." maxlength=400 required></textarea>
                         <div class="invalid-feedback">
                             Campo obligatorio.
                         </div>
@@ -123,34 +123,6 @@
                     }, false)
                 })
         })();
-
-        /*
-            Esto ya no sirve, eliminar mas tarde
-            document.addEventListener("DOMContentLoaded", function() {
-            const experienciaContainer = document.getElementById("experiencia-container");
-            const agregarExperienciaBtn = document.getElementById("agregar-experiencia");
-
-            agregarExperienciaBtn.addEventListener("click", function() {
-                // Crear un nuevo campo de experiencia laboral
-                const experienciaItem = document.createElement("div");
-                experienciaItem.className = "experience-item";
-
-                // Agregar campos de entrada
-                experienciaItem.innerHTML = `
-                    <input type="text" name="exp" class="expTexto" id="exp" placeholder="Añada algo aquí...">
-                    <button type="button" class="eliminar-experiencia">Eliminar</button>
-                `;
-
-                // Agregar el campo de experiencia laboral al contenedor
-                experienciaContainer.appendChild(experienciaItem);
-
-                // Agregar evento de eliminación
-                const eliminarBtn = experienciaItem.querySelector(".eliminar-experiencia");
-                eliminarBtn.addEventListener("click", function() {
-                    experienciaContainer.removeChild(experienciaItem);
-                });
-            });
-        });*/
     </script>
 
 </body>

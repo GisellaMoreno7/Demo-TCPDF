@@ -1,4 +1,26 @@
-
-*{
+h2 {
   text-align: center;
+  font-weight: 100;
+  color: #61687B;
+}
+
+.contenedor-general {
+  max-height: 3300px;
+  max-width: 2300;
+  border-top: 0.5px solid #AAAAAA;
+  display: flex;
+  justify-content: center;
+}
+
+.bloque-dato {
+  font-size: 15px;
+  color: #282828;
+}
+
+.border {
+  border-top: 1px solid #AAAAAA;
+}
+
+h4 {
+  color: #545A94;
 }
