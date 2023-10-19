@@ -45,10 +45,10 @@ if ($_FILES['imagen']["error"] <= 0) {
     <p>EXPERIENCIA LABORAL: <br>
     $experiencia</p>";/*guarda el texto que va en el pdf. puede haber multiples o uno solo
     si se usa directamente el metodo writeHTML()*/
-    //html .= '<style>'.file_get_contents('estilos.css').'</style>';//agrega los estilos al pdf
+    $html .= '<style>'.file_get_contents('../estructura/css/estilos.css').'</style>';//agrega los estilos al pdf
     $pdf->writeHTML($html);
     //coloca una imagen en el pdf. Este coloca una foto en el curriculum
-   // $pdf->Image($ruta,10, 10, 40,40, '', '', '', false, 300, '', false, false, 0);
+    $pdf->Image($ruta,10, 10, 40,40, '', '', '', false, 300, '', false, false, 0);
 
     $pdf->Output($nombre. 'curriculum.pdf','I');//manda el documento a un destino dado
 
