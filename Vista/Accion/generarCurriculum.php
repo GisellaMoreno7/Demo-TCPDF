@@ -1,35 +1,37 @@
 <?php
-//include_once "../Librerias/tcpdf/tcpdf.php";
 require_once('../Librerias/tcpdf/tcpdf.php');
 include_once "../../Utiles/funciones.php";
 
-//$_POST=data_submitted();
-
 if ($_FILES['imagen']["error"] <= 0) {
 
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $edad = $_POST['edad'];
-    $correo = $_POST['correo'];
-    $sobreMi = $_POST['sobreMi'];
-    $educacion = $_POST['estudios'];
-    $experiencia = $_POST['exp'];
-    $imagen = $_FILES['imagen']; //Recibe la imagen
-    $directorio = "../foto/"; //donde se guarda la imagen de manera local
-    $nombreImagen = uniqid() . "_" . $imagen['name']; //Le da un unico id a la imagen
-    $ruta = $directorio . $nombreImagen; //ruta del directorio
-    move_uploaded_file($imagen['tmp_name'], $ruta); //lo guarda en el directorio
+    //Encapsulo datos del formulario
+    $datos = data_submitted();
 
-    //creo un nuevo objeto tcpdf
+    $nombre = $datos['nombre'];
+    $apellido = $datos['apellido'];
+    $edad = $datos['edad'];
+    $correo = $datos['correo'];
+    $sobreMi = $datos['sobreMi'];
+    $educacion = $datos['estudios'];
+    $experiencia = $datos['exp'];
+    $imagen = $_FILES['imagen']; //Recibe la imagen
+    $directorio = "../foto/"; //Ubicación donde se guarda la imagen de manera local
+    $nombreImagen = uniqid() . "_" . $imagen['name']; //Le da un único id a la imagen
+    $ruta = $directorio . $nombreImagen; //Ruta del directorio
+    move_uploaded_file($imagen['tmp_name'], $ruta); //Lo guarda en el directorio
+
+    //Creo un nuevo objeto tcpdf
     $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', true);
-    $pdf->setPrintHeader(false); //desabilita el header
-    $pdf->setPrintFooter(false); //desabilita el footer
+    $pdf->setPrintHeader(false); //Deshabilita el header
+    $pdf->setPrintFooter(false); //Deshabilita el footer
 
     //Se crea una pagina
     $pdf->AddPage();
+
     //Setear la fuente en general
-    //$pdf->SetFont('falmily', 'style', tamaño);
     $pdf->SetFont('helvetica', '', 18);
+
+    //Genero código html como string dentro de la variable $html
     $html = '
     <h2>CURRÍCULUM VITAE</h2>
     <div class="contenedor-general">
@@ -51,15 +53,17 @@ if ($_FILES['imagen']["error"] <= 0) {
     </div>
     </div>';
 
-    $html .= '<style>' . file_get_contents('../estructura/css/estilos.css') . '</style>'; //agrega los estilos al pdf
+    //Agrega hojas de estilo al pdf
+    $html .= '<style>' . file_get_contents('../estructura/css/estilos.css') . '</style>';
 
+    //Mandamos el formato realizado arriba para que sea escrito dentro del pdf
     $pdf->writeHTML($html);
-    //coloca una imagen en el pdf. Este coloca una foto en el curriculum
+
+    //Coloca una imagen en el pdf. Este coloca una foto en el curriculum
     $pdf->Image($ruta, 158, 32.8, 35, 45, '', '', '', false, 300, '', false, false, 0);
 
-    $pdf->Output($nombre . 'curriculum.pdf', 'I'); //manda el documento a un destino dado
-
-
+    //Manda el documento a un destino dado
+    $pdf->Output($nombre . 'curriculum.pdf', 'I');
 } else {
-    echo "No se ah podido generar el Curriculum";
+    echo "No se ha podido generar el Currículum.";
 }
